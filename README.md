@@ -1,4 +1,4 @@
-# Semantic-Segmatation
+# Semantic Segmatation with UDA (Unsupervised Domain Adaptation)
 
 ## Requirements
 

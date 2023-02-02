@@ -1,0 +1,52 @@
+model_params:
+  name: 'MS_UDA_attention_MANet_ATloss+mutual'
+
+exp_params:
+  dataset: 'mfdataset'
+  root_dir : './' # your absolute directory
+  data_dir: '/MFdataset'
+  num_classes: 19 #cityscapes: 19, mfdataset: 9
+  gpus: '0,1'
+  input_size: '640, 480'
+  num_layers: 50
+
+init:
+  init_type: 'xavier'
+  init_gain: 0.02
+
+train_params:
+  batch_size: 8
+  max_epoch: 390 
+  num_workers: 16
+  power: 0.9
+  norm: 'BatchNorm'
+  gan: 'LS'
+  lambda:
+    alpha: 1.0 #rgb stream seg loss coeff
+    beta: 0.25 #0.25 #thermal stream seg loss coeff
+    gamma: 0.01 #adv loss coeff
+  generator:
+    optimizer_type: 'SGD'
+    base_lr: 0.002 #0.001 for 8 BS (2BS/GPU) #0.0005 for 4 BS(1 BS /GPU)
+    momentum: 0.9
+    weight_decay: 0.0005
+  discriminator:
+    optimizer_type: 'Adam'
+    base_lr: 0.0002 #x0.1 of base_lr
+  decoder:
+    optimizer_type: 'SGD'
+    base_lr: 0.002
+    momentum: 0.9
+    weight_decay: 0.0005
+
+test_params:
+  batch_size: 1
+  num_workers: 4
+
+logging_params:
+  log_dir: 'logs'
+  save_dir: 'checkpoints'
+  tensorboard: True
+
+
+

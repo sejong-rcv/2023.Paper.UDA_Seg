@@ -15,7 +15,7 @@
 - MF Dataset은 RGB 영상과 Thermal 영상을 합쳐서 4채널로 제공은 한다.
 - 따라서 두 도메인의 영상을 따로 다루기 편하도록 RGB 영상과 Thermal 영상 따로 저장하는 작업이 필요하다.
 - ```Make_split.ipynb```을 이용해 RGB 와 Thermal 를 분리해 저장해야한다. 
-
+- 추가적인 Dataset 관련 셋팅은 [MS-UDA](https://github.com/yeong5366/MS-UDA) 참고
 
 ## Dataloader
 
